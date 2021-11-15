@@ -53,7 +53,7 @@ def create_rectangle_in_random_spot():
         for _ in range(20):
             if previous_rectangle is not None:
                 play_area.delete(previous_rectangle)
-            base = randint(0, 850)
+            base = randint(0, 600)
             rectangle = play_area.create_rectangle(base, base + 50, base + 100, base + 150, fill='red',
                                                    outline='red')
             play_area.tag_bind(rectangle, '<Button-1>', increase_score_command)
@@ -61,7 +61,7 @@ def create_rectangle_in_random_spot():
             sleep(1.5)
         for _ in range(30):
             play_area.delete(previous_rectangle)
-            base = randint(0, 850)
+            base = randint(0, 600)
             rectangle = play_area.create_rectangle(base, base + 50, base + 100, base + 150, fill='red',
                                                    outline='red')
             play_area.tag_bind(rectangle, '<Button-1>', increase_score_command)
@@ -69,7 +69,7 @@ def create_rectangle_in_random_spot():
             sleep(1)
         while True:
             play_area.delete(previous_rectangle)
-            base = randint(0, 850)
+            base = randint(0, 600)
             rectangle = play_area.create_rectangle(base, base + 50, base + 100, base + 150, fill='red',
                                                    outline='red')
             play_area.tag_bind(rectangle, '<Button-1>', increase_score_command)
