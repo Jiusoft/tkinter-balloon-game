@@ -32,7 +32,7 @@ def set_score(score: int):
     score_label['text'] = f'Score: {score}'
 score_label.pack(side=tk.TOP, fill=tk.X)
 
-play_area = tk.Canvas(master=root, bg='snow', width=1000, height=1000)
+play_area = tk.Canvas(master=root, bg='snow', width=750, height=750)
 increase_score_command = None
 def set_increase_score_command(command):
     global increase_score_command
