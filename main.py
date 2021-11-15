@@ -2,6 +2,7 @@ import tkinter as tk
 from random import randint
 from time import sleep
 from threading import Thread
+from playsound import playsound
 
 
 root = tk.Tk()
@@ -40,6 +41,9 @@ def increase_score(evt):
     global score
     score += 1
     set_score(score)
+    def play_pop():
+        playsound('Pop.mp3', True)
+    Thread(target=play_pop).start()
 
 def create_rectangle_in_random_spot():
     previous_rectangle = None
