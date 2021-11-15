@@ -5,8 +5,27 @@ from threading import Thread
 
 
 root = tk.Tk()
-root.attributes('-fullscreen', True)
 root.wm_title('Balloon game - Jiusoft')
+
+fullscreen = False
+def enter_fullscreen():
+    global fullscreen
+    fullscreen = True
+    fullscreen_button['text'] = 'Exit fullscreen'
+    root.attributes('-fullscreen', True)
+def exit_fullscreen():
+    global fullscreen
+    fullscreen = False
+    fullscreen_button['text'] = 'Enter fullscreeen'
+    root.attributes('-fullscreen', False)
+def enter_or_exit_fullscreen():
+    if fullscreen:
+        exit_fullscreen()
+    elif not fullscreen:
+        enter_fullscreen()
+fullscreen_button = tk.Button(master=root, text='', command=enter_or_exit_fullscreen)
+fullscreen_button.pack(side=tk.RIGHT, anchor=tk.NE)
+enter_fullscreen()
 
 score_label = tk.Label(master=root, text='Score: 0')
 def set_score(score: int):
