@@ -33,10 +33,6 @@ def set_score(score: int):
 score_label.pack(side=tk.TOP, fill=tk.X)
 
 play_area = tk.Canvas(master=root, bg='snow', width=750, height=750)
-increase_score_command = None
-def set_increase_score_command(command):
-    global increase_score_command
-    increase_score_command = command
 play_area.pack(side=tk.TOP)
 
 score = 0
@@ -44,8 +40,6 @@ def increase_score(evt):
     global score
     score += 1
     set_score(score)
-
-set_increase_score_command(increase_score)
 
 def create_rectangle_in_random_spot():
     previous_rectangle = None
@@ -56,7 +50,7 @@ def create_rectangle_in_random_spot():
             base = randint(0, 600)
             rectangle = play_area.create_rectangle(base, base + 50, base + 100, base + 150, fill='red',
                                                    outline='red')
-            play_area.tag_bind(rectangle, '<Button-1>', increase_score_command)
+            play_area.tag_bind(rectangle, '<Button-1>', increase_score)
             previous_rectangle = rectangle
             sleep(1.5)
         for _ in range(30):
@@ -64,7 +58,7 @@ def create_rectangle_in_random_spot():
             base = randint(0, 600)
             rectangle = play_area.create_rectangle(base, base + 50, base + 100, base + 150, fill='red',
                                                    outline='red')
-            play_area.tag_bind(rectangle, '<Button-1>', increase_score_command)
+            play_area.tag_bind(rectangle, '<Button-1>', increase_score)
             previous_rectangle = rectangle
             sleep(1)
         while True:
@@ -72,7 +66,7 @@ def create_rectangle_in_random_spot():
             base = randint(0, 600)
             rectangle = play_area.create_rectangle(base, base + 50, base + 100, base + 150, fill='red',
                                                    outline='red')
-            play_area.tag_bind(rectangle, '<Button-1>', increase_score_command)
+            play_area.tag_bind(rectangle, '<Button-1>', increase_score)
             previous_rectangle = rectangle
             sleep(0.5)
     except RuntimeError:
